@@ -1,6 +1,4 @@
 #Элизбаров Оганес, группа 37/1, вариант-3
-import random
-
 
 #Задание 1
 
@@ -260,6 +258,8 @@ for i in range(0, len(strings)-1):
             strings[i], strings[j] = strings[j], strings[i]
 
 #Задание 15
+
+import random
 
 arr = [1, 6, -4, 2, 0, -1, 8, -3, -2, 3]
 index = random.randint(0, len(arr))
