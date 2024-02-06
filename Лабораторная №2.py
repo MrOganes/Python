@@ -42,7 +42,7 @@ def find_synonym(date, word):
     return None
 
 n = int(input())
-date = set(
+date = set()
 for i in range(0, n):
     sin = input().split()
     date.add((sin[0], sin[1]))
