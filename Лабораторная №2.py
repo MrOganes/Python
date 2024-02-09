@@ -1,7 +1,6 @@
 #Элизбаров Оганес, группа 37/1
 
 #Задание 1
-
 def sort(arr):
     size = len(arr)
     for i in (0, size-1):
@@ -32,18 +31,3 @@ for i in range(0, M):
     Borya.add(int(input()))
 result = division_into_sets(Anya, Borya)
 print(len(result[0]),"\n", result[0], "\n",len(result[1]),"\n", result[1], "\n",len(result[2]),"\n", result[2], "\n")
-
-#Задание 2
-
-def find_synonym(date, word):
-    for i in date:
-        if word in i:
-            return [elem for elem in i if elem!=word].pop()
-    return None
-
-n = int(input())
-date = set()
-for i in range(0, n):
-    sin = input().split()
-    date.add((sin[0], sin[1]))
-print(find_synonym(date, input()))
