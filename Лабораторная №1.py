@@ -221,3 +221,35 @@ for i in range(0, len(strings)-1):
     for j in range(i+1, len(strings)):
         if(count_vowel_consonant_pairs(strings[i])>count_vowel_consonant_pairs(strings[j])):
             strings[i], strings[j] = strings[j], strings[i]
+
+#Задание 14
+
+def most_char_in_text(strings):
+    str = ' '.join(strings)
+    most_char = ""
+    kol = 0
+    for char in str:
+        if(str.count(char)>kol):
+            most_char = char
+            kol = str.count(char)
+    return [most_char, kol]
+
+def char_in_text(str, char):
+    kol = 0
+    for i in str:
+        if(i==char):
+            kol+=1
+    return kol
+def quadratic_deviation(x, y):
+    return (x-y)**2
+
+strings = []
+str = input()
+while(str):
+    strings.append(str)
+    str = input()
+info = most_char_in_text(strings)
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(quadratic_deviation(info[1], char_in_text(strings[i], info[0]))>quadratic_deviation(info[1], char_in_text(strings[j], info[0]))):
+            strings[i], strings[j] = strings[j], strings[i]
