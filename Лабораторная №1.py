@@ -73,3 +73,15 @@ def kol_slov(str):
         if(len(i)%2==0):
             kol+=1
     return kol
+
+#Задание 4
+
+def sort(colors):
+    color_order = {"белый": 0, "синий": 1, "красный": 2}
+    for i in range(0, len(colors)-1):
+        for j in range(i+1, len(colors)):
+            if(color_order[colors[i]]>color_order[colors[j]]):
+                colors[i], colors[j] = colors[j], colors[i]
+    return colors
+
+colors = ["красный", "белый", "синий", "красный", "белый", "синий"]
