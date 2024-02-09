@@ -308,3 +308,27 @@ def print_elements(arr):
     print("\nЭлементы с нечетными индексами:")
     for i in range(1, len(arr), 2):
         print(arr[i], end=" ")
+
+#Задание 19
+
+def count_input(lst):
+    L1 = []
+    L2 = []
+    for elem in lst:
+        if elem not in L1:
+            L1.append(elem)
+            L2.append(1)
+        else:
+            index = L1.index(elem)
+            L2[index] += 1
+
+    return L1, L2
+
+arr = []
+x = input()
+while(x):
+    arr.append(int(x))
+    x = input()
+L1, L2 = count_input(arr)
+print("L1:", L1)
+print("L1:", L2)
