@@ -202,3 +202,22 @@ for i in range(0, len(strings)-1):
         b = most_char(strings[j])
         if(quadratic_deviation(a[1], char_in_text(strings, a[0]))>quadratic_deviation(b[1], char_in_text(strings, b[0]))):
             strings[i], strings[j] = strings[j], strings[i]
+
+#Задание 13
+
+def count_vowel_consonant_pairs(text):
+    vowels = 'aeiouAEIOU'
+    consonants = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'
+    num_vc_pairs = sum(1 for i in range(len(text) - 1) if text[i] in vowels and text[i + 1] in consonants)
+    num_cv_pairs = sum(1 for i in range(len(text) - 1) if text[i] in consonants and text[i + 1] in vowels)
+    return abs(num_vc_pairs - num_cv_pairs)
+
+strings = []
+str = input()
+while(str):
+    strings.append(str)
+    str = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(count_vowel_consonant_pairs(strings[i])>count_vowel_consonant_pairs(strings[j])):
+            strings[i], strings[j] = strings[j], strings[i]
