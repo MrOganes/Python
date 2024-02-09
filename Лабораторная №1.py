@@ -147,3 +147,27 @@ for i in range(0, len(strings)-1):
     for j in range(i+1, len(strings)):
         if(len(strings[i].split())>len(strings[j].split())):
             strings[i], strings[j] = strings[j], strings[i]
+
+#Задание 11
+
+def most_char(str):
+    most_char = ""
+    kol = 0
+    for char in str:
+        if(str.count(char)>kol):
+            most_char = char
+            kol = str.count(char)
+    return kol
+
+def weight_str(str):
+    return abs(1-most_char(str))
+
+strings = []
+str = input()
+while(str):
+    strings.append(str)
+    str = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(weight_str(strings[i])>weight_str(strings[j])):
+            strings[i], strings[j] = strings[j], strings[i]
