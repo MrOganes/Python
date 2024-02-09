@@ -123,3 +123,15 @@ def find_min_integer(str):
         if int(i)<min:
             min = int(i)
     return min
+
+#Задание 9
+
+strings = []
+str = input()
+while(str):
+    strings.append(str)
+    str = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(len(strings[i])>len(strings[j])):
+            strings[i], strings[j] = strings[j], strings[i]
