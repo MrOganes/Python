@@ -63,3 +63,13 @@ def random_words(str):
     rd.shuffle(words)
     new_str = ' '.join(words)
     return new_str
+
+#Задание 3
+
+def kol_slov(str):
+    words = str.split()
+    kol = 0
+    for i in words:
+        if(len(i)%2==0):
+            kol+=1
+    return kol
