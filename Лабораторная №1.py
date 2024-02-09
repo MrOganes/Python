@@ -267,3 +267,24 @@ for i in range(0, len(arr)):
         print("Число ", arr[index], " на позиции ", index, ", не является глобальным максимумом.")
 if(flag==True):
     print("Число ", arr[index], " на позиции ", index, ", является глобальным максимумом.")
+
+#Задание 16
+
+arr = [1, 6, -4, 2, 0, -1, 8, -3, -2, 3]
+index = random.randint(0, len(arr))
+
+if (index == 0):
+    if arr[index]<arr[index+1]:
+        print("Число ", arr[index], " на позиции ", index, ", является локальным минимумом.")
+    else:
+        print("Число ", arr[index], " на позиции ", index, ", не является локальным минимумом.")
+elif(index>0 and index<len(arr)-1):
+    if arr[index]<arr[index+1] and arr[index]<arr[index-1]:
+        print("Число ", arr[index], " на позиции ", index, ", является локальным минимумом.")
+    else:
+        print("Число ", arr[index], " на позиции ", index, ", не является локальным минимумом.")
+else:
+    if arr[index]<arr[index-1]:
+        print("Число ", arr[index], " на позиции ", index, ", является локальным минимумом.")
+    else:
+        print("Число ", arr[index], " на позиции ", index, ", не является локальным минимумом.")
