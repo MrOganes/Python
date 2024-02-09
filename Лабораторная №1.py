@@ -288,3 +288,12 @@ else:
         print("Число ", arr[index], " на позиции ", index, ", является локальным минимумом.")
     else:
         print("Число ", arr[index], " на позиции ", index, ", не является локальным минимумом.")
+
+#Задание 17
+
+def shift_left(arr):
+    if len(arr) > 0:
+        first_element = arr[0]
+        for i in range(len(arr) - 1):
+            arr[i] = arr[i + 1]
+        arr[-1] = first_element
