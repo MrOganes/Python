@@ -135,3 +135,15 @@ for i in range(0, len(strings)-1):
     for j in range(i+1, len(strings)):
         if(len(strings[i])>len(strings[j])):
             strings[i], strings[j] = strings[j], strings[i]
+
+#Задание 10
+
+strings = []
+str = input()
+while(str):
+    strings.append(str)
+    str = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(len(strings[i].split())>len(strings[j].split())):
+            strings[i], strings[j] = strings[j], strings[i]
