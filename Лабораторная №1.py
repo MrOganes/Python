@@ -103,3 +103,12 @@ def find_rus_char(str):
         if(("а"<=char and char<="я")or("А"<=char and char<="Я")):
             count+=1
     return count
+
+#Задание 7
+
+def find_rus_lower_char(str):
+    chars = []
+    for char in str:
+        if("а" <= char and char <= "я"):
+            chars.append(char)
+    return chars
