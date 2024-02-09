@@ -112,3 +112,14 @@ def find_rus_lower_char(str):
         if("а" <= char and char <= "я"):
             chars.append(char)
     return chars
+
+#Задание 8
+
+def find_min_integer(str):
+    integers = re.findall(r'-?\b\d+\b', str)
+    min = int(integers[0])
+    print(integers)
+    for i in integers:
+        if int(i)<min:
+            min = int(i)
+    return min
