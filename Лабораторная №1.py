@@ -171,3 +171,34 @@ for i in range(0, len(strings)-1):
     for j in range(i+1, len(strings)):
         if(weight_str(strings[i])>weight_str(strings[j])):
             strings[i], strings[j] = strings[j], strings[i]
+
+#Задание 12
+
+def most_char(str):
+    most_char = ""
+    kol = 0
+    for char in str:
+        if(str.count(char)>kol):
+            most_char = char
+            kol = str.count(char)
+    return [most_char, kol]
+
+def char_in_text(strings, char):
+    kol = 0
+    for i in strings:
+        kol+=i.count(char)
+    return kol
+def quadratic_deviation(x, y):
+    return (x-y)**2
+
+strings = []
+str = input()
+while(str):
+    strings.append(str)
+    str = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        a = most_char(strings[i])
+        b = most_char(strings[j])
+        if(quadratic_deviation(a[1], char_in_text(strings, a[0]))>quadratic_deviation(b[1], char_in_text(strings, b[0]))):
+            strings[i], strings[j] = strings[j], strings[i]
