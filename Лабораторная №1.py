@@ -85,3 +85,12 @@ def sort(colors):
     return colors
 
 colors = ["красный", "белый", "синий", "красный", "белый", "синий"]
+
+#Задание 5
+
+import re
+
+def find_dates(str):
+    pattern = r'\b\d{1,2}\s(?:января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)\s\d{4}\b'
+    dates = re.findall(pattern, str)
+    return dates
