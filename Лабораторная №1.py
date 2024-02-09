@@ -53,3 +53,13 @@ def NOD(a,b):
         if(a%i==0 and b%i==0):
             return i
     return 1
+
+#Задание 2
+
+import random as rd
+
+def random_words(str):
+    words = str.split()
+    rd.shuffle(words)
+    new_str = ' '.join(words)
+    return new_str
