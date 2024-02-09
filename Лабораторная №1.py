@@ -297,3 +297,14 @@ def shift_left(arr):
         for i in range(len(arr) - 1):
             arr[i] = arr[i + 1]
         arr[-1] = first_element
+
+#Задание 18
+
+def print_elements(arr):
+    print("Элементы с четными индексами:")
+    for i in range(0, len(arr), 2):
+        print(arr[i], end=" ")
+
+    print("\nЭлементы с нечетными индексами:")
+    for i in range(1, len(arr), 2):
+        print(arr[i], end=" ")
