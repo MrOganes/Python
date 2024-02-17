@@ -2,7 +2,7 @@ from Rectangle import Rectangle
 from Pentagon import Pentagon
 
 #rectangle и pentagon не пересекаются
-rectangle = Rectangle(0, 0, 2, 0, 2, 1, 0, 1)
+rectangle = Rectangle(0, 0, 1, 0, 2, 1, 0, 1)
 pentagon = Pentagon(5, 5, 6, 6, 7, 7, 8, 8, 9, 9)
 print(rectangle.is_intersect(pentagon), pentagon.is_intersect(rectangle))
 

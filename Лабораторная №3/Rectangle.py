@@ -1,25 +1,37 @@
 import uuid
+from typing import Tuple, Union
+import Pentagon
 
 class Rectangle:
-    def __init__(self, x1, y1, x2, y2, x3, y3, x4, y4):
+    def __init__(self, x1: Union[int, float], y1: Union[int, float], x2: Union[int, float], y2: Union[int, float], x3: Union[int, float], y3: Union[int, float], x4: Union[int, float], y4: Union[int, float]):
+        if not all(isinstance(coord, (int, float)) for coord in [x1, y1, x2, y2, x3, y3, x4, y4]):
+            raise TypeError("Координаты вершин должны быть числами")
+
+        vertices = [(x1, y1), (x2, y2), (x3, y3), (x4, y4)]
+        if len(set(vertices)) < 4:
+            raise ValueError("Вершины прямоугольника не должны совпадать")
+
         self.__id = str(uuid.uuid4())
-        self.__vertices = [(x1, y1), (x2, y2), (x3, y3), (x4, y4)]
+        self.__vertices = vertices
 
-    def Get_vertices(self):
-        return self.__vertices
+    def Get_vertices(self) -> Tuple[Tuple[float, float], ...]:
+        return tuple(self.__vertices)
 
-    def Get_id(self):
+    def Get_id(self) -> str:
         return self.__id
 
-    def is_intersect(self, pentagon):
+    def is_intersect(self, pentagon) -> bool:
+        if not isinstance(pentagon, Pentagon.Pentagon):
+            raise TypeError("Переданный объект не является пятиугольником")
+
         pentagon_vertices = pentagon.Get_vertices()
-        for i in range(0, len(self.__vertices)):
-            x1, y1 = self.__vertices[i][0],self.__vertices[i][1]
-            x2, y2 = self.__vertices[(i+1)%len(self.__vertices)][0],self.__vertices[(i+1)%len(self.__vertices)][1]
-            for j in range(0, len(pentagon_vertices)):
-                x3, y3 = pentagon_vertices[j][0], pentagon_vertices[j][1]
-                x4, y4 = pentagon_vertices[(j + 1) % len(pentagon_vertices)][0], pentagon_vertices[(j + 1) % len(pentagon_vertices)][1]
-                if(self.__check_segments_intersection(x1,y1, x2, y2, x3, y3, x4, y4)):
+        for i in range(len(self.__vertices)):
+            x1, y1 = self.__vertices[i]
+            x2, y2 = self.__vertices[(i + 1) % len(self.__vertices)]
+            for j in range(len(pentagon_vertices)):
+                x3, y3 = pentagon_vertices[j]
+                x4, y4 = pentagon_vertices[(j + 1) % len(pentagon_vertices)]
+                if self.__check_segments_intersection(x1, y1, x2, y2, x3, y3, x4, y4):
                     return True
         return False
 
@@ -32,7 +44,10 @@ class Rectangle:
         else:
             return False
 
-    def is_include(self, pentagon):
+    def is_include(self, pentagon) -> bool:
+        if not isinstance(pentagon, Pentagon.Pentagon):
+            raise TypeError("Переданный объект не является пятиугольником")
+
         pentagon_vertices = pentagon.Get_vertices()
         rectangle_vertices = self.__vertices
 
