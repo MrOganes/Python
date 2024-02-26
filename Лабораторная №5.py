@@ -1,29 +1,19 @@
-def is_zip_code(input_string):
-    # Проверяем длину строки
-    if len(input_string) != 5:
-        return False
+import re
 
-    # Проверяем, что все символы в строке являются цифрами
-    if not input_string.isdigit():
-        return False
+def check_postal_code(postal_code):
+    pattern = r'^\d{5}$'  # Регулярное выражение для почтового индекса из пяти цифр
 
-    # Если прошли обе проверки, возвращаем True
+    if not re.match(pattern, postal_code):
+        raise ValueError("Неверный формат почтового индекса")
+
     return True
 
-def validate_zip_code(input_string):
-    if not isinstance(input_string, str):
-        raise TypeError("Аргумент должен быть строкой")
+# Пример использования
+postal_codes = ["12345", "54321", "987654", "abcde", "123456", "5432a"]
 
-    if is_zip_code(input_string):
-        return input_string
-    else:
-        raise ValueError("Некорректный почтовый индекс")
-
-try:
-    zip_code = validate_zip_code("12345-")
-    print("Почтовый индекс:", zip_code)
-except ValueError as ve:
-    print("Ошибка:", ve)
-except TypeError as te:
-    print("Ошибка:", te)
-
+for postal_code in postal_codes:
+    try:
+        if check_postal_code(postal_code):
+            print(f"{postal_code} - это почтовый индекс из пяти цифр.")
+    except ValueError as e:
+        print(f"Ошибка: {e}")
