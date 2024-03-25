@@ -1,5 +1,5 @@
 import sqlite3
-from http.server import HTTPServer, CGIHTTPRequestHandler
+
 
 # Создание соединения с базой данных
 conn = sqlite3.connect('software_database.db')
@@ -49,5 +49,19 @@ c.execute("INSERT INTO Clients (name, contact_person, email) VALUES (?, ?, ?)",
 
 # Сохранение изменений и закрытие соединения
 conn.commit()
-conn.close()
 
+# Статистические запросы
+# 1. Количество разработчиков в каждой специализации
+c.execute("SELECT specialization, COUNT(*) FROM Developers GROUP BY specialization")
+print(c.fetchall())
+
+# 2. Средняя продолжительность проектов
+c.execute("SELECT AVG(julianday(end_date) - julianday(start_date)) FROM Projects")
+print(c.fetchone()[0])
+
+# 3. Список клиентов
+c.execute("SELECT Clients.name FROM Clients")
+print(*c.fetchall())
+
+# Закрытие соединения с базой данных
+conn.close()
