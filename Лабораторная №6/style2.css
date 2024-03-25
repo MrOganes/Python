@@ -1,0 +1,44 @@
+/* Общие стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Выравнивание контейнера по центру */
+}
+
+h1 {
+    color: #333;
+}
+
+/* Стили для таблицы */
+table {
+    width: 100%; /* Таблица занимает всю доступную ширину */
+    border-collapse: collapse; /* Убираем промежутки между ячейками */
+    margin-bottom: 20px; /* Отступ снизу таблицы */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Разделительные линии между строками */
+}
+
+th {
+    background-color: #f2f2f2; /* Цвет фона для заголовков */
+    color: #333;
+}
+
+/* Стили для ссылок */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
