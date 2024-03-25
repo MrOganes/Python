@@ -1,5 +1,5 @@
 import sqlite3
-
+from http.server import HTTPServer, CGIHTTPRequestHandler
 
 # Создание соединения с базой данных
 conn = sqlite3.connect('software_database.db')
@@ -65,3 +65,7 @@ print(*c.fetchall())
 
 # Закрытие соединения с базой данных
 conn.close()
+
+server_address =("",8000)
+httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
+httpd.serve_forever()
