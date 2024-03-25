@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <form action="/cgi-bin/obrabotka.py" method="post">
+    <div class="form-group">
+      <label for="name">Имя и фамилия:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="specialization">IT специализация:</label>
+      <input type="text" id="specialization" name="specialization" required>
+    </div>
+    <div class="form-group">
+      <label for="project-name">Имя проекта:</label>
+      <input type="text" id="project-name" name="project-name" required>
+    </div>
+    <div class="form-group">
+      <label for="project-description">Описание проекта:</label>
+      <textarea id="project-description" name="project-description" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="start-date">Дата начала проекта:</label>
+      <input type="date" id="start-date" name="start-date" required>
+    </div>
+    <div class="form-group">
+      <label for="end-date">Дата окончания проекта:</label>
+      <input type="date" id="end-date" name="end-date" required>
+    </div>
+    <div class="form-group">
+      <label for="client-organization">Название организации заказчика:</label>
+      <input type="text" id="client-organization" name="client-organization" required>
+    </div>
+    <div class="form-group">
+      <label for="client-representative">Имя и фамилия представителя организации:</label>
+      <input type="text" id="client-representative" name="client-representative" required>
+    </div>
+    <div class="form-group">
+      <label for="client-email">Email представителя организации:</label>
+      <input type="email" id="client-email" name="client-email" required>
+    </div>
+    <button type="submit">Отправить</button>
+  </form>
+</div>
+
+</body>
+</html>
