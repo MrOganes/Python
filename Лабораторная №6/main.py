@@ -1,4 +1,5 @@
 import sqlite3
+from http.server import HTTPServer, CGIHTTPRequestHandler
 
 # Создание соединения с базой данных
 conn = sqlite3.connect('software_database.db')
